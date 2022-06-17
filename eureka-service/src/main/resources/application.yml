@@ -1,0 +1,16 @@
+server:
+  port: 8761
+  servlet:
+    context-path: /eureka
+
+spring:
+  application:
+    name: eureka
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+#    serviceUrl:
+#      defaultZone: https://eureka-service-develop.herokuapp.com:${server.port}/eureka
