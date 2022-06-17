@@ -1,8 +1,8 @@
 package com.unipampa.crudservice.interfaces;
 
-import com.unipampa.crudservice.model.Localizacao;
+import com.unipampa.crudservice.model.Endereco;
 
 public interface ILocalizacaoService {
 
-    public void salvarLocalizacao(Localizacao localizacao);
+    public void salvarLocalizacao(Endereco localizacao);
 }

@@ -23,7 +23,10 @@ public class Proprietario {
   private Amostra amostra;
 
   @OneToMany
-  private List<Localizacao> localizacoes;
+  private List<Endereco> enderecos;
+
+  @Column
+  private String cpf;
 
   @OneToMany
   private List<Cao> caes;

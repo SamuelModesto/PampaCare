@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
-public class Localizacao {
+public class Endereco {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,16 +25,16 @@ public class Localizacao {
   @Column(nullable = false, length = 50)
   private String bairro;
 
-  @Column(nullable = false, length = 50)
-  private String area;
-
-  @Column(nullable = false)
-  private Float latitude;
-
-  @Column(nullable = false)
-  private Float longitude;
-
   @ManyToOne
   private Proprietario proprietario;
+
+//  @Column(nullable = false, length = 50)
+//  private String area;
+//
+//  @Column(nullable = false)
+//  private Float latitude;
+//
+//  @Column(nullable = false)
+//  private Float longitude;
 
 }

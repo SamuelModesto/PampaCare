@@ -5,10 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.NotFound;
 
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -32,7 +30,7 @@ public class AmostraDTO {
     private Proprietario proprietario;
 
     @NotBlank
-    private List<Localizacao> localizacoes;
+    private List<Endereco> localizacoes;
 
     @NotBlank
     private List<Sintoma> sintomas;

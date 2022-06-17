@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +20,7 @@ public class AmostraController {
     private ICaoService caoService;
 
     @Autowired
-    private IProprietarioService proprietarioService;
+    private ProprietarioService proprietarioService;
 
     @Autowired
     private ILocalizacaoService localizacaoService;
@@ -45,12 +44,12 @@ public class AmostraController {
         Acao acao = caputurarAcao(dto);
         Amostra amostra = caputurarAmostra(dto);
 
-        List<Localizacao> localizacoes = dto.getProprietario().getLocalizacoes().stream().collect(Collectors.toList());
+        List<Endereco> enderecos = dto.getProprietario().getEnderecos().stream().collect(Collectors.toList());
         List<Exame> exames = dto.getExames().stream().collect(Collectors.toList());
         List<Sintoma> sintomas = dto.getSintomas().stream().collect(Collectors.toList());
         List<Cao> caes = dto.getProprietario().getCaes().stream().collect(Collectors.toList());
 
-        proprietario.setLocalizacoes(localizacoes);
+        proprietario.setEnderecos(enderecos);
         proprietario.setCaes(caes);
         amostra.setExames(exames);
         amostra.setAcao(acao);
@@ -58,7 +57,7 @@ public class AmostraController {
         amostra.setProprietario(proprietario);
 
         salvarCaes(caes);
-        salvarLocalizacoes(localizacoes);
+        salvarLocalizacoes(enderecos);
         salvarExames(exames);
         salvarSintomas(sintomas);
         acaoService.salvarAcao(acao);
@@ -70,7 +69,7 @@ public class AmostraController {
         caes.stream().forEach(e -> caoService.salvarCao(e));
     }
 
-    public void salvarLocalizacoes(List<Localizacao> localizacoes){
+    public void salvarLocalizacoes(List<Endereco> localizacoes){
         localizacoes.stream().forEach(e -> localizacaoService.salvarLocalizacao(e));
     }
 
