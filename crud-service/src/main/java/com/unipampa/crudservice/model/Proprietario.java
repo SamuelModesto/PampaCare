@@ -19,14 +19,14 @@ public class Proprietario {
   @Column(nullable = false, length = 50)
   private String nome;
 
+  @Column(nullable = false, length = 11)
+  private String cpf;
+
   @OneToOne
   private Amostra amostra;
 
   @OneToMany
   private List<Endereco> enderecos;
-
-  @Column
-  private String cpf;
 
   @OneToMany
   private List<Cao> caes;
